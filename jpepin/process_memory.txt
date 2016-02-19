@@ -1,0 +1,25 @@
+JPEPZ
+Memoire
+Carte SD / memoire Flash hardware (32ko ?)
+Protocole SPI
+
+La SPI envoie et reçoit simultanément des informations à chaque tour de clock.
+
+[Micro-Processeur]-->[MISO] (Données stockées)-->[MOSI] (Données transmises)-->[Circuit]
+11101101    00000000    00000000    00000000-,	|
+01110110    10000000    00000000    00000000  |->| Le micro-processeur envoie les ordres
+00111011    01000000    00000000    00000000-’	|
+….. 6 tours de clock					|
+00000000    11101101    00000000    00000000  -->| Le SPI reçoit le pattern 
+….. 8 tours de clock					|
+00000000    11101101    11101101    00000000-,	| 
+….. 8 tours de clock				       |    |
+00000000    11101101    00000000    11101101-”-->| Le SPI retransmet le pattern, tout en
+….. 8 tours de clock					| le conservant (pour qu’il soit
+00000000    11101101    00000000    00000000	| utilisé ultérieurement).
+Et ainsi de suite.					|
+
+C’est rapide mais ça doit être connecté en série, ce qui est possible dans notre cas, car le seul endroit où on en a besoin c’est entre le microprocesseur et la sortie audio : Set-utilisateur --,--> MicroProc > SPI > Audio (Stockage des sets);
+     MIDI ----------’
+	 Puis : MIDI > MicroProc > Preset SPI > Audio
+
