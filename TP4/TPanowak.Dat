@@ -1,0 +1,16 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~TPanowak.PrjPcb|ReportField=ProjectFullPath~C:\Users\bocal\Desktop\TPanowak\TPanowak.PrjPcb|ReportField=Title~Bill of Materials For Project [TPanowak.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~36|ReportField=ReportTime~19:36:51|ReportField=ReportDate~07/03/2016|ReportField=ReportDateTime~07/03/2016 19:36:51|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~07/03/2016|ReportField=CurrentTime~19:36:49|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\bocal\Desktop\TPanowak\P1.SchDoc|ReportField=DocumentName~P1.SchDoc|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~16/02/2016|ReportField=Organization~|ReportField=ProjectName~TPanowak.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~TPanowak.PrjPcb|ReportField=DataSourceFullPath~C:\Users\bocal\Desktop\TPanowak\TPanowak.PrjPcb
+100n|Capacitor|C1, C2, C3, C4, C5, C6|CAPC1608N|Cap|6
+20p|Capacitor|C7, C8|CAPC1608N|Cap|2
+6.3V|Capacitor|C9, C11, C12, C13|CAPC2012N|Cap|4
+6.3V|Capacitor|C10, C14, C15|CAPC1608N|Cap|3
+Green LED|Typical INFRARED GaAs LED|D1_LED0, D1_LED1, D1_LED2, D1_LED3, D4|LED 0805N|LED0|5
+GF1A|Default Diode|D2, D3|GF1A Diode|Diode|2
+Inductor|Inductor|FB1|INDC1608AN|Inductor|1
+Program / Debug||J1|RJ12_90|Component_1|1
+12V Main|Header, 2-Pin, Right Angle|P1|PHOENIX_1985195|Header 2H|1
+12V Battery|Header, 2-Pin, Right Angle|P2|PHOENIX_1985195|Header 2H|1
+RPot|Potentiometer|R1|POTARD|RPot|1
+Res1|Resistor|R2_LED0, R2_LED1, R2_LED2, R2_LED3, R3, R4|RESC1608N|Res1|6
+PIC32MX764F128H-I/PT||U1|QFP50P1200X1200X120-64|PIC 32|1
+AP1117||U2|TD03B_N|AP1117|1
+8MHz|Crystal Oscillator|Y1|HC49/4H SMX CRYSTAL|XTAL|1

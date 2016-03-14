@@ -1,0 +1,39 @@
+Designator Footprint               Mid X         Mid Y         Ref X         Ref Y         Pad X         Pad Y TB      Rotation Comment        
+
+C1         CAPC1608N            34.153mm      25.164mm     32.5655mm     24.9608mm     33.4037mm      25.164mm  T        360.00 100n           
+C2         CAPC1608N           21.5921mm     23.0467mm     21.7953mm     21.4592mm     21.5921mm     22.2974mm  T         90.00 100n           
+C3         CAPC1608N           36.2226mm       21.23mm     36.0194mm     22.8175mm     36.2226mm     21.9793mm  T        270.00 100n           
+C4         CAPC1608N            39.332mm     17.7986mm     40.9195mm     18.0018mm     40.0813mm     17.7986mm  T        180.00 100n           
+C5         CAPC1608N           37.7642mm     21.2931mm      37.561mm     22.8806mm     37.7642mm     22.0424mm  T        270.00 100n           
+C6         CAPC1608N            20.798mm     26.2187mm     21.0011mm     24.6312mm      20.798mm     25.4694mm  T         90.00 100n           
+C7         CAPC1608N           39.0663mm     32.6292mm     40.6538mm     32.8324mm     39.8156mm     32.6292mm  T        180.00 20p            
+C8         CAPC1608N           38.6016mm     34.7024mm     37.0141mm     34.4992mm     37.8523mm     34.7024mm  T          0.00 20p            
+C9         CAPC2012N            2.1991mm     26.5289mm      3.1991mm     27.1289mm      3.3991mm     26.5289mm  T        180.00 6.3V           
+C10        CAPC1608N            1.9924mm     19.3389mm      1.7892mm     20.9264mm      1.9924mm     20.0882mm  T        270.00 6.3V           
+C11        CAPC2012N           29.2309mm      18.697mm     29.8309mm      17.697mm     29.2309mm      17.497mm  T         90.00 6.3V           
+C12        CAPC2012N           38.0141mm     39.3171mm     37.0141mm     38.7171mm     36.8141mm     39.3171mm  T        360.00 6.3V           
+C13        CAPC2012N           30.4282mm     24.2158mm     29.8282mm     25.2158mm     30.4282mm     25.4158mm  T        270.00 6.3V           
+C14        CAPC1608N           26.3636mm      22.028mm     26.5668mm     20.4405mm     26.3636mm     21.2787mm  T         90.00 6.3V           
+C15        CAPC1608N           26.3977mm     24.8854mm     26.6009mm     23.2979mm     26.3977mm     24.1361mm  T         90.00 6.3V           
+D1_LED0    LED_0805N            11.026mm     41.7786mm      11.026mm     41.7786mm      12.176mm     41.7786mm  T        180.00 Green LED      
+D1_LED1    LED_0805N            3.7806mm     45.3163mm      3.7806mm     45.3163mm      2.6306mm     45.3163mm  T        360.00 Green LED      
+D1_LED2    LED_0805N            8.5768mm     46.4388mm      8.5768mm     46.4388mm      8.5768mm     47.5888mm  T        270.00 Green LED      
+D1_LED3    LED_0805N             2.658mm     49.8404mm       2.658mm     49.8404mm       1.508mm     49.8404mm  T        360.00 Green LED      
+D2         GF1A_Diode          33.7918mm     17.2879mm     33.7918mm     17.2879mm     33.7918mm     15.5879mm  T         90.00 GF1A           
+D3         GF1A_Diode          24.7398mm     16.8102mm     24.7398mm     16.8102mm     24.7398mm     15.1102mm  T         90.00 GF1A           
+D4         LED_0805N           34.2248mm      51.201mm     34.2248mm      51.201mm     35.3748mm      51.201mm  T        180.00 Green LED      
+FB1        INDC1608AN          23.5029mm     24.3162mm     23.5029mm     24.3162mm     23.5029mm     23.5162mm  T         90.00 Inductor       
+J1         RJ12_90               7.743mm        6.65mm       1.143mm        12.7mm       9.643mm        11.1mm  T        270.00 Program / Debug
+POTARD     POTARD              20.0025mm      54.483mm      19.939mm      54.483mm      14.986mm      54.483mm  T          0.00 RPot           
+R2         RESC1608N            6.4338mm     37.0164mm      6.4338mm     37.0164mm      6.4338mm     37.8164mm  T        270.00 Res1           
+R2         RESC1608N            4.8008mm     36.9821mm      4.8008mm     36.9821mm      4.8008mm     37.7821mm  T        270.00 Res1           
+R2         RESC1608N            3.2703mm     36.9483mm      3.2703mm     36.9483mm      3.2703mm     37.7483mm  T        270.00 Res1           
+R2         RESC1608N            1.7056mm     36.9143mm      1.7056mm     36.9143mm      1.7056mm     37.7143mm  T        270.00 Res1           
+R3         RESC1608N            9.8694mm       14.94mm      9.8694mm       14.94mm      9.0694mm       14.94mm  T          0.00 Res1           
+R4         RESC1608N           37.8571mm     42.8192mm     37.8571mm     42.8192mm     37.8571mm     43.6192mm  T        270.00 Res1           
+U1         QFP50P1200X1200X120-64      11.828mm     24.8788mm       6.128mm     19.1788mm       7.328mm     18.5788mm  T         90.00 PIC32MX764F128H-I/PT
+U2         TD03B_N             31.4728mm     30.9671mm     28.0298mm     30.9671mm     34.9158mm     28.5171mm  T         90.00 AP1117         
+Y1         HC49/4H_SMX_CRYSTAL      25.908mm      44.831mm      25.908mm      44.831mm      30.734mm      44.831mm  T        180.00 8MHz           
+P2         PHOENIX_1985195     26.9629mm      8.9262mm     21.9629mm      1.7262mm     25.2129mm     11.4262mm  T          0.00 12V Battery    
+P1         PHOENIX_1985195     36.9447mm      9.5133mm     31.9447mm      2.3134mm     35.1947mm     12.0134mm  T          0.00 12V Main       
+
