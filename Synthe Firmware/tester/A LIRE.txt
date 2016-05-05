@@ -1,0 +1,3 @@
+Ce dossier contient des éléments de test pour compute le synthé 
+depuis un terminal. Il suffit de faire make.
+Usage : ./synthe [octave] [demi-ton] [centième] [onde]
