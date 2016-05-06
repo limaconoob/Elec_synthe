@@ -6,7 +6,7 @@
 /*   By: jpepin <jpepin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/05 17:08:13 by jpepin            #+#    #+#             */
-/*   Updated: 2016/05/05 17:08:40 by jpepin           ###   ########.fr       */
+/*   Updated: 2016/05/06 17:17:07 by jpepin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ void            init_bits(void)
     T2CON = 0;                          //Clear le timer2
     T2CONbits.ON = FALSE;               //Attend la pression du bouton
     TMR2 = 0;
-    PR2 = 50;                           //Blink très rapide (0,000 005 sec)
+    PR2 = 633;
+
+    OC1CON = 0;
+    OC1R = PR2;
+    OC1RS = PR2;
+    OC1CONbits.OCM = 0b010;
+    OC1CONbits.OCFLT = TRUE;
+    OC1CONbits.OCTSEL = FALSE;
 
     //------  UART  -------
     // UART pour la réception MIDI IN et envoi de MIDI THRU
@@ -67,6 +74,14 @@ void            init_flag(void)
 
 void            init_state(void)
 {
+    mode = 0;
+    pwm = 0;
+    beat = 0xFFFF;
+    onde = read_onde_preset();
+    cur_period = read_period_preset();
+    get_period = (cur_period * 100) / 158;
+    get_period = get_period - ((get_period / 100) * 100); // = 55
+    magic_period = cur_period / 158;                      // = 7
 }
 
 //  On crée un tableau dans lequel on range toutes les périodes

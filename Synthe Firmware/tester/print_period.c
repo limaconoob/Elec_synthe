@@ -18,7 +18,8 @@ void         print_period(u32 period, char *onde)
 {
 	if (!ft_strcmp(onde, "C"))
 	{
-		printf("Tension ,^,\n");
+		printf("\n         ,\n");
+		printf("Tension /|\\\n");
 		printf("  0xFFFF_|        ,________,        ,____\n");
 		printf("         |        |        |        |\n");
 		printf("         |        |        |        |\n");
@@ -32,7 +33,8 @@ void         print_period(u32 period, char *onde)
 	}
 	else if (!ft_strcmp(onde, "D"))
 	{
-		printf("Tension ,^,\n");
+		printf("\n         ,\n");
+		printf("Tension /|\\\n");
 		printf("  0xFFFF_|        ,        ,        ,\n");
 		printf("         |       /|       /|       /|\n");
 		printf("         |      / |      / |      / |\n");
@@ -46,7 +48,8 @@ void         print_period(u32 period, char *onde)
 	}
 	else if (!ft_strcmp(onde, "T"))
 	{
-		printf("Tension ,^,\n");
+		printf("\n         ,\n");
+		printf("Tension /|\\\n");
 		printf("  0xFFFF_|            ,                ,\n");
 		printf("         |           / \\              /\n");
 		printf("         |          /   \\            /\n");
@@ -60,7 +63,8 @@ void         print_period(u32 period, char *onde)
 	}
 	else if (!ft_strcmp(onde, "S"))
 	{
-		printf("Tension ,^,\n");
+		printf("\n         ,\n");
+		printf("Tension /|\\\n");
 		printf("  0xFFFF_|             ,-,               ,\n");
 		printf("         |            l   l             l\n");
 		printf("         |           l     l           l\n");
