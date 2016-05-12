@@ -72,6 +72,7 @@ static void      write4bits(u8 value)
     return;
 }
 
+
 static void      lcd_command(u8 value, u8 rs)
 {
     if (rs)                  //set RS to write or read
@@ -85,6 +86,18 @@ static void      lcd_command(u8 value, u8 rs)
     return;
 }
 
+
+static void      lcd_printnbr(u16 value)
+{
+    int x = 0;
+
+    if (value >= 10)
+        lcd_printnbr(value / 10);
+    lcd_command((value % 10) + '0', 1);
+    return;
+}
+
+
 static void      lcd_print(char *str)
 {
     int x = 0;
@@ -96,6 +109,7 @@ static void      lcd_print(char *str)
     }
     return;
 }
+
 
 static void      lcd_goto(u8 col, u8 line)
 {
@@ -173,25 +187,6 @@ static void         init_oscil(void)
 }
 
 
-char           *ft_itoa(u16 value)
-{
-    char        str[6];
-    u8          i;
-
-    str[5] = '\0';
-    i = 4;
-    if (value == 0)
-        str[i--] = '0';
-    while (value > 0) {
-        str[i--] = (value % 10) + '0';
-        value /= 10;
-    }
-    while (i > 0)
-        str[i--] = ' ';
-    return (str);
-}
-
-
 u16             oscillator(u8 onde)
 {
     u16         cur_tension;
@@ -202,62 +197,64 @@ u16             oscillator(u8 onde)
     if (onde == TRIANGLE) {
         if (mode == 0) {
             if (pwm < beat) {
-                pwm += 910;
-                cur_tension = pwm;
+                pwm += 910;                 // Fait monter la tension courante
+                cur_tension = pwm;          // jusqu'à beat
             }
             else if (pwm >= beat) {
-                mode = 1;
-                beat = !(beat & 0xFFFF);
+                cur_tension = beat;
+                mode = 1;                   // Quand la tension arrive à beat
+                beat = !(beat & 0xFFFF);    // on inverse beat
             }
         }
         else {
             if (pwm > beat) {
-                pwm -= 910;
-                cur_tension = pwm;
+                pwm -= 910;                 // Fait descendre la tension
+                cur_tension = pwm;          // courante jusqu'à beat
             }
             else if (pwm <= beat) {
-                mode = 0;
-                beat = !(beat & 0xFFFF);
+                cur_tension = beat;
+                mode = 0;                   // Quand la tension arrive à beat
+                beat = !(beat & 0xFFFF);    // on inverse beat
             }
         }
     }
 
     else if (onde == CARRE) {
         if (mode == 0) {
-            if (pwm < beat) {
-                pwm += 910;
+            if (pwm < beat) {               // Incrémente un compteur
+                pwm += 910;                 // jusqu'à beat
             }
-            else if (pwm >= beat) {
-                mode = 1;
-                cur_tension = pwm;
+            else if (pwm >= beat) {         // Quand le compteur arrive à beat
+                mode = 1;                   // on inverse la tension courante
+                cur_tension = !(cur_tension & 0xFFFF);
             }
         }
         else {
-            if (pwm > beat) {
-                pwm -= 910;
+            if (pwm > beat) {               // Décrémente un compteur
+                pwm -= 910;                 // jusqu'à beat
             }
-            else if (pwm <= beat) {
-                mode = 0;
-                cur_tension = pwm;
+            else if (pwm <= beat) {         // Quand le compteur arrive à beat
+                mode = 0;                   // on inverse la tension courante
+                cur_tension = !(cur_tension & 0xFFFF);
             }
         }
     }
 
     else if (onde == SAWTOOTH) {
         if (mode == 0) {
-            if (pwm < beat) {
-                pwm += 910;
+            if (pwm < beat) {               // Incrémente un compteur
+                pwm += 910;                 // jusqu'à beat
             }
-            else if (pwm >= beat) {
-                pwm = !(pwm & 0xFFFF);
+            else if (pwm >= beat) {         // Quand le compteur arrive à beat
+                pwm = !(pwm & 0xFFFF);      // on inverse le compteur
             }
         }
         else {
-            if (pwm > beat) {
-                pwm -= 910;
+            if (pwm > beat) {               // Décrémente un compteur
+                pwm -= 910;                 // jusqu'à beat
             }
-            else if (pwm <= beat) {
-                pwm = !(pwm & 0xFFFF);
+            else if (pwm <= beat) {         // Quand le compteur arrive à beat
+                pwm = !(pwm & 0xFFFF);      // on inverse le compteur
             }
         }
         cur_tension = pwm;
@@ -271,7 +268,7 @@ void __ISR(_TIMER_2_VECTOR, IPL1AUTO) Freq_48kHz(void)
 {
     lcd_goto(1, 2);
     lcd_print("Tension: ");
-    lcd_print(ft_itoa(oscillator(TRIANGLE)));
+    lcd_print(lcd_printnbr(oscillator(TRIANGLE)));
     IFS0bits.T2IF = FALSE;
 }
 
