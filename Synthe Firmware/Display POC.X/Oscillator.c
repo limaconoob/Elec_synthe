@@ -1,4 +1,4 @@
-/*#include <p32xxxx.h>
+#include <p32xxxx.h>
 #include <sys/attribs.h>
 
 # define PROCESS 42
@@ -9,10 +9,13 @@
 # define VCC 1
 # define GND 0
 
-# define CARRE    1
-# define TRIANGLE 2
-# define SAWTOOTH 3
-# define SINUSOID 4
+# define MONTANT    0
+# define DESCENDANT 1
+
+# define CARRE      1
+# define TRIANGLE   2
+# define SAWTOOTH   3
+# define SINUSOID   4
 
 typedef unsigned    char u8;
 typedef unsigned    short u16;
@@ -129,8 +132,6 @@ static void      lcd_goto(u8 col, u8 line)
 
 static void      init_lcd(void)
 {
-    LATFbits.LATF1 = 1;
-
     //-----  PAD IO  ----
     TRIS_RS = OUTPUT;          //RS is output
     TRIS_E = OUTPUT;           //E is output
@@ -162,17 +163,116 @@ static void      init_lcd(void)
 }
 
 
+u16             oscillator(u8 onde, u16 value)
+{
+    static u8   mode = 0;
+    static u16  beat = 0xFFFF;
+    static u16  pwm = 0x0000;
+
+    if (onde == TRIANGLE) {
+        if (mode == MONTANT) {
+            if (value < beat - 910) {
+                value += 910;               // Fait monter la tension courante
+            }
+            else {
+                value = beat;
+                mode = DESCENDANT;          // Quand la tension arrive à beat
+                beat = 0x0000;              // on inverse beat
+            }
+        }
+        else if (mode == DESCENDANT) {
+            if (value > beat + 910) {
+                value -= 910;               // Fait descendre la tension
+            }
+            else {
+                value = beat;
+                mode = MONTANT;             // Quand la tension arrive à beat
+                beat = 0xFFFF;              // on inverse beat
+            }
+        }
+    }
+
+    else if (onde == CARRE) {
+        if (mode == MONTANT) {
+            if (pwm < beat - 910) {         // Incrémente un compteur
+                pwm += 910;                 // jusqu'à beat
+            }
+            else {                          // Quand le compteur arrive à beat
+                mode = DESCENDANT;          // on inverse la tension courante
+                value = 0x0000;
+                beat = 0x0000;
+                pwm = 0xFFFF;
+            }
+        }
+        else if (mode == DESCENDANT) {
+            if (pwm > beat + 910) {         // Décrémente un compteur
+                pwm -= 910;                 // jusqu'à beat
+            }
+            else {                          // Quand le compteur arrive à beat
+                mode = MONTANT;             // on inverse la tension courante
+                value = 0xFFFF;
+                beat = 0xFFFF;
+                pwm = 0x0000;
+            }
+        }
+    }
+
+    else if (onde == SAWTOOTH) {
+      //  if (mode == MONTANT) {
+            if (pwm < beat - 910) {         // Incrémente un compteur
+                pwm += 910;                 // jusqu'à beat
+            }
+            else {                          // Quand le compteur arrive à beat
+                pwm = 0x0000;               // on inverse le compteur
+            }
+     /*   }
+        else if (mode == DESCENDANT) { // REVERSE SAWTOOTH
+            if (pwm > beat) {               // Décrémente un compteur
+                pwm -= 910;                 // jusqu'à beat
+            }
+            else if (pwm <= beat) {         // Quand le compteur arrive à beat
+                pwm = 0xFFFF;               // on inverse le compteur
+            }
+        }*/
+        value = pwm;
+    }
+
+    return (value);
+}
+
+u16         value = 0;
+u8          onde = SAWTOOTH;
+
+void __ISR(_TIMER_3_VECTOR, IPL1AUTO) Freq_48kHz(void)
+{
+    value = oscillator(onde, value);
+
+    IFS0bits.T3IF = FALSE;
+}
+
+
+static void         print_onde(void)
+{
+    lcd_goto(9, 1);
+    value = 0;
+    if (onde == CARRE)
+        lcd_print("CARRE   ");
+    else if (onde == SAWTOOTH)
+        lcd_print("SAWTOOTH");
+    else if (onde == TRIANGLE)
+        lcd_print("TRIANGLE");
+}
+
 static void      init_interrupt(void)
 {
     //----- INTERRUPT -----
     INTCONbits.MVEC = TRUE;             //Multi-vector mode
-    INTCONbits.INT1EP = 0;              //Prend INT1 au front descendant
 
     //-----   FLAG   -----
-    IEC0bits.T2IE = TRUE;               //Autorise interruption timer2
-    IFS0bits.T2IF = FALSE;              //Flag à NO (Attend signal pour blink)
-    IPC2bits.T2IP = 1;                  //Passe en priorité basse
-    IPC2bits.T2IS = 1;                  //Sous-priorité osef'
+    IEC0bits.T3IE = TRUE;               //Autorise interruption timer2
+    IFS0bits.T3IF = FALSE;              //Flag à NO (Attend signal pour blink)
+    IPC3bits.T3IP = 1;                  //Passe en priorité basse
+    IPC3bits.T3IS = 1;                  //Sous-priorité osef'
 
     asm volatile("ei");                 //Autorise les macro-ASM (interruptions)
 }
@@ -180,112 +280,50 @@ static void      init_interrupt(void)
 
 static void         init_oscil(void)
 {
+    T3CON = 0;
     T2CON = 0;
-    T2CONbits.ON = TRUE;
+    T2CONbits.T32 = TRUE;
     TMR2 = 0;
-    PR2 = 633;
-}
-
-
-u16             oscillator(u8 onde)
-{
-    u16         cur_tension;
-    static u8   mode = 0;
-    static u16  beat = 0xFFFF;
-    static u16  pwm = 0x0000;
-
-    if (onde == TRIANGLE) {
-        if (mode == 0) {
-            if (pwm < beat) {
-                pwm += 910;                 // Fait monter la tension courante
-                cur_tension = pwm;          // jusqu'à beat
-            }
-            else if (pwm >= beat) {
-                cur_tension = beat;
-                mode = 1;                   // Quand la tension arrive à beat
-                beat = !(beat & 0xFFFF);    // on inverse beat
-            }
-        }
-        else {
-            if (pwm > beat) {
-                pwm -= 910;                 // Fait descendre la tension
-                cur_tension = pwm;          // courante jusqu'à beat
-            }
-            else if (pwm <= beat) {
-                cur_tension = beat;
-                mode = 0;                   // Quand la tension arrive à beat
-                beat = !(beat & 0xFFFF);    // on inverse beat
-            }
-        }
-    }
-
-    else if (onde == CARRE) {
-        if (mode == 0) {
-            if (pwm < beat) {               // Incrémente un compteur
-                pwm += 910;                 // jusqu'à beat
-            }
-            else if (pwm >= beat) {         // Quand le compteur arrive à beat
-                mode = 1;                   // on inverse la tension courante
-                cur_tension = !(cur_tension & 0xFFFF);
-            }
-        }
-        else {
-            if (pwm > beat) {               // Décrémente un compteur
-                pwm -= 910;                 // jusqu'à beat
-            }
-            else if (pwm <= beat) {         // Quand le compteur arrive à beat
-                mode = 0;                   // on inverse la tension courante
-                cur_tension = !(cur_tension & 0xFFFF);
-            }
-        }
-    }
-
-    else if (onde == SAWTOOTH) {
-        if (mode == 0) {
-            if (pwm < beat) {               // Incrémente un compteur
-                pwm += 910;                 // jusqu'à beat
-            }
-            else if (pwm >= beat) {         // Quand le compteur arrive à beat
-                pwm = !(pwm & 0xFFFF);      // on inverse le compteur
-            }
-        }
-        else {
-            if (pwm > beat) {               // Décrémente un compteur
-                pwm -= 910;                 // jusqu'à beat
-            }
-            else if (pwm <= beat) {         // Quand le compteur arrive à beat
-                pwm = !(pwm & 0xFFFF);      // on inverse le compteur
-            }
-        }
-        cur_tension = pwm;
-    }
-
-    return (cur_tension);
-}
-
-
-void __ISR(_TIMER_2_VECTOR, IPL1AUTO) Freq_48kHz(void)
-{
-    lcd_goto(1, 2);
-    lcd_print("Tension: ");
-    lcd_print(lcd_printnbr(oscillator(TRIANGLE)));
-    IFS0bits.T2IF = FALSE;
+    PR2 = 50000;
+    //PR2 = 633;
+    T2CONbits.ON = TRUE;
 }
 
 
 int             main(void) {
+    u8          status;
+    u8          prev_status;
+
     TRISFbits.TRISF1 = OUTPUT;          //RF1 = Led verte
     LATFbits.LATF1 = 0;               //Etat initial = éteint
+    TRISDbits.TRISD8 = INPUT;
 
     init_interrupt();
     init_lcd();
     init_oscil();
 
-    lcd_print("Oscillateur");
-    lcd_goto(1, 2);
-    lcd_print("Tension:     0");
+    lcd_goto(1, 1);
+    lcd_print("Oscillo:");
+    print_onde();
 
     while(PROCESS) {
+
+        status = PORTDbits.RD8;
+        if (!status && prev_status)
+        {
+            if (onde < 3)
+                onde++;
+            else
+                onde = 1;
+            print_onde();
+        }
+        prev_status = status;
+
+        lcd_goto(1, 2);
+        lcd_print("Tension: ");
+        lcd_printnbr(value);
+        lcd_print("      ");
+
         WDTCONbits.WDTCLR = TRUE;       //Clear Watchdog
     }
-}*/
+}
