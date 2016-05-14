@@ -211,6 +211,7 @@ int             main(void) {
             }
 
             stock = _RD4;
+
             prev_status = status;
         }
 

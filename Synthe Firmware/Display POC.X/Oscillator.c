@@ -1,4 +1,4 @@
-#include <p32xxxx.h>
+/*#include <p32xxxx.h>
 #include <sys/attribs.h>
 
 # define PROCESS 42
@@ -225,15 +225,15 @@ u16             oscillator(u8 onde, u16 value)
             else {                          // Quand le compteur arrive à beat
                 pwm = 0x0000;               // on inverse le compteur
             }
-     /*   }
-        else if (mode == DESCENDANT) { // REVERSE SAWTOOTH
-            if (pwm > beat) {               // Décrémente un compteur
-                pwm -= 910;                 // jusqu'à beat
-            }
-            else if (pwm <= beat) {         // Quand le compteur arrive à beat
-                pwm = 0xFFFF;               // on inverse le compteur
-            }
-        }*/
+      //  }
+      //  else if (mode == DESCENDANT) { // REVERSE SAWTOOTH
+      //      if (pwm > beat) {               // Décrémente un compteur
+      //          pwm -= 910;                 // jusqu'à beat
+      //      }
+      //      else if (pwm <= beat) {         // Quand le compteur arrive à beat
+      //          pwm = 0xFFFF;               // on inverse le compteur
+      //      }
+      //  }
         value = pwm;
     }
 
@@ -327,3 +327,4 @@ int             main(void) {
         WDTCONbits.WDTCLR = TRUE;       //Clear Watchdog
     }
 }
+*/
