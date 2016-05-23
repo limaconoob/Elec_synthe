@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Display POC2.X
+PROJECTNAME=Display POC.X
 
 # Active Configuration
 DEFAULTCONF=default

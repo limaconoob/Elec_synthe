@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Bonjour_Midi4.X
+PROJECTNAME=Synthe Firmware
 
 # Active Configuration
 DEFAULTCONF=default
