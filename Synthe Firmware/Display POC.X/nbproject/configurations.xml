@@ -17,6 +17,7 @@
       <itemPath>Multiplexer.c</itemPath>
       <itemPath>Midi.c</itemPath>
       <itemPath>Oscillator.c</itemPath>
+      <itemPath>Reception_V2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

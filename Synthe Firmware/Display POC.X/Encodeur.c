@@ -1,4 +1,4 @@
-#include <p32xxxx.h>
+/*#include <p32xxxx.h>
 #include <sys/attribs.h>
 
 # define PROCESS 42
@@ -149,43 +149,73 @@ static void     init_things(void)
 {
     TRISFbits.TRISF1 = OUTPUT;          //RF1 = Led circuit verte
     LATFbits.LATF1 = GND;               //Etat initial = éteint
-    TRISDbits.TRISD3 = OUTPUT;          //RB9 = Led externe verte
-    LATDbits.LATD3 = GND;               //Etat initial = éteint
 
-    TRISDbits.TRISD8 = INPUT;
-    TRISDbits.TRISD4 = INPUT;
-    TRISDbits.TRISD5 = INPUT;
+    TRISDbits.TRISD8 = INPUT;           // Bouton Reset LCD
+    TRISDbits.TRISD4 = INPUT;           // Pin A Encodeur
+    TRISDbits.TRISD5 = INPUT;           // Pin B Encodeur
+}
+
+static void     print_value(s8 i)
+{
+    static u16  valeur = 0;
+
+    valeur += i;
+    if (valeur & 0x8000) {
+        lcd_print("-");
+        lcd_printnbr((valeur ^ 0xFFFF) + 1);
+    }
+    else
+        lcd_printnbr(valeur);
+    lcd_print("       ");
 }
 
 int             main(void) {
-    u8          stock = FALSE;
-    u16         valeur = 0;
+
+    u8          stock = _RD4;
+    u8          prev_status = !(_RD4 ^ _RD5);
+    u8          status;
+
 
     init_things();
-//    init_lcd();
-//    lcd_goto(1, 1);
-//    lcd_print("Encodeur :");
+    init_lcd();
+    lcd_goto(1, 1);
+    lcd_print("Encodeur :");
 
 
     while(PROCESS) {
 
-        if (stock ^ _RD5) {
-            lcd_goto(1, 2);
-            lcd_print("Droite : ");
-            valeur++;
-            lcd_printnbr(valeur);
-            LATFbits.LATF1 = TRUE;
+        // RESET
+        if (!PORTDbits.RD8) {
+            lcd_command(0b00000001, 0);  //Clear display
+            waitXticks(5000);
+            lcd_command(0b00000000, 0);  //Set Diplay OFF
+            waitXticks(1000);
         }
+        // RESET
 
-        else {
-            lcd_goto(1, 2);
-            lcd_print("Gauche : ");
-            valeur++;
-            lcd_printnbr(valeur);
-            LATFbits.LATF1 = FALSE;
+
+
+        status = _RD4 ^ _RD5;
+        if (prev_status != status)
+        {
+            if (stock ^ _RD5) {
+                lcd_goto(1, 2);
+                lcd_print("Droite : ");
+                print_value(1);
+            }
+
+            else {
+                lcd_goto(1, 2);
+                lcd_print("Gauche : ");
+                print_value(-1);
+            }
+
+            stock = _RD4;
+
+            prev_status = status;
         }
-        stock = _RD4;
 
         WDTCONbits.WDTCLR = TRUE;       //Clear Watchdog
     }
 }
+*/
