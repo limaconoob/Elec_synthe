@@ -1,0 +1,13 @@
+Added Component: Designator=Display1(Display)
+Added Pin To Net: NetName=GND Pin=Display1-1
+Added Pin To Net: NetName=+5V Pin=Display1-2
+Added Pin To Net: NetName=NetDisplay1_3 Pin=Display1-3
+Added Pin To Net: NetName=NetDisplay1_4 Pin=Display1-4
+Added Pin To Net: NetName=GND Pin=Display1-5
+Added Pin To Net: NetName=NetDisplay1_6 Pin=Display1-6
+Added Pin To Net: NetName=NetDisplay1_7 Pin=Display1-7
+Added Pin To Net: NetName=NetDisplay1_8 Pin=Display1-8
+Added Pin To Net: NetName=NetDisplay1_9 Pin=Display1-9
+Added Pin To Net: NetName=NetDisplay1_10 Pin=Display1-10
+Added Pin To Net: NetName=NetDisplay1_15 Pin=Display1-15
+Added Pin To Net: NetName=+5V Pin=Display1-16

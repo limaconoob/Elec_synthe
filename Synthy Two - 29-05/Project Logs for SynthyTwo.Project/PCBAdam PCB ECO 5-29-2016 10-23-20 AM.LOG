@@ -1,0 +1,4 @@
+Added Component: Designator=U27(LM13700_ALIM)
+Added Component: Designator=U28(LM13700_ALIM)
+Added Pin To Net: NetName=+9V Pin=U27-1
+Added Pin To Net: NetName=+9V Pin=U28-1

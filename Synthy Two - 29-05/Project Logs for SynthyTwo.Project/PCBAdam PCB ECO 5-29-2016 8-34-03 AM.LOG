@@ -1,0 +1,44 @@
+Added Component: Designator=Display1(Display)
+Added Component: Designator=EA1(EC12E)
+Added Component: Designator=EB1(EC12E)
+Added Component: Designator=EC1(EC12E)
+Added Component: Designator=ED1(EC12E)
+Added Component: Designator=S1(PUSH BUTTON)
+Added Component: Designator=S2(PUSH BUTTON)
+Added Component: Designator=S3(PUSH BUTTON)
+Added Component: Designator=S4(PUSH BUTTON)
+Added Component: Designator=S5(PUSH BUTTON)
+Added Pin To Net: NetName=GND Pin=Display1-1
+Added Pin To Net: NetName=+5V Pin=Display1-2
+Added Pin To Net: NetName=NetDisplay1_3 Pin=Display1-3
+Added Pin To Net: NetName=NetDisplay1_4 Pin=Display1-4
+Added Pin To Net: NetName=GND Pin=Display1-5
+Added Pin To Net: NetName=NetDisplay1_6 Pin=Display1-6
+Added Pin To Net: NetName=NetDisplay1_7 Pin=Display1-7
+Added Pin To Net: NetName=NetDisplay1_8 Pin=Display1-8
+Added Pin To Net: NetName=NetDisplay1_9 Pin=Display1-9
+Added Pin To Net: NetName=NetDisplay1_10 Pin=Display1-10
+Added Pin To Net: NetName=NetDisplay1_15 Pin=Display1-15
+Added Pin To Net: NetName=+5V Pin=Display1-16
+Added Pin To Net: NetName=NetC39_2 Pin=EA1-1
+Added Pin To Net: NetName=NetC38_2 Pin=EA1-2
+Added Pin To Net: NetName=GND Pin=EA1-3
+Added Pin To Net: NetName=NetC41_2 Pin=EB1-1
+Added Pin To Net: NetName=NetC40_2 Pin=EB1-2
+Added Pin To Net: NetName=GND Pin=EB1-3
+Added Pin To Net: NetName=NetC43_2 Pin=EC1-1
+Added Pin To Net: NetName=NetC42_2 Pin=EC1-2
+Added Pin To Net: NetName=GND Pin=EC1-3
+Added Pin To Net: NetName=NetC45_2 Pin=ED1-1
+Added Pin To Net: NetName=NetC44_2 Pin=ED1-2
+Added Pin To Net: NetName=GND Pin=ED1-3
+Added Pin To Net: NetName=NetR94_1 Pin=S1-1
+Added Pin To Net: NetName=GND Pin=S1-2
+Added Pin To Net: NetName=NetR93_1 Pin=S2-1
+Added Pin To Net: NetName=GND Pin=S2-2
+Added Pin To Net: NetName=NetR92_1 Pin=S3-1
+Added Pin To Net: NetName=GND Pin=S3-2
+Added Pin To Net: NetName=NetR91_1 Pin=S4-1
+Added Pin To Net: NetName=GND Pin=S4-2
+Added Pin To Net: NetName=NetR90_1 Pin=S5-1
+Added Pin To Net: NetName=GND Pin=S5-2
