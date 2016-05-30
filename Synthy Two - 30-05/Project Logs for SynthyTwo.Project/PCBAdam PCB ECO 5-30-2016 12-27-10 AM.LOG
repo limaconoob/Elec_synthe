@@ -1,0 +1,16 @@
+Added Component: Designator=EA(EC12E)
+Added Component: Designator=EB(EC12E)
+Added Component: Designator=EC(EC12E)
+Added Component: Designator=ED(EC12E)
+Added Pin To Net: NetName=NetC51_2 Pin=EA-1
+Added Pin To Net: NetName=NetC50_2 Pin=EA-2
+Added Pin To Net: NetName=GND Pin=EA-3
+Added Pin To Net: NetName=NetC53_2 Pin=EB-1
+Added Pin To Net: NetName=NetC52_2 Pin=EB-2
+Added Pin To Net: NetName=GND Pin=EB-3
+Added Pin To Net: NetName=NetC55_2 Pin=EC-1
+Added Pin To Net: NetName=NetC54_2 Pin=EC-2
+Added Pin To Net: NetName=GND Pin=EC-3
+Added Pin To Net: NetName=NetC57_2 Pin=ED-1
+Added Pin To Net: NetName=NetC56_2 Pin=ED-2
+Added Pin To Net: NetName=GND Pin=ED-3

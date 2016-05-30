@@ -1,0 +1,12 @@
+Added Component: Designator=VR1(LM1117-SOT)
+Added Component: Designator=VR2(LM1117-SOT)
+Added Component: Designator=VR3(LM1117-SOT)
+Added Pin To Net: NetName=NetC1_1 Pin=VR1-1
+Added Pin To Net: NetName=GND Pin=VR1-2
+Added Pin To Net: NetName=+3.3V Pin=VR1-3
+Added Pin To Net: NetName=NetC1_1 Pin=VR2-1
+Added Pin To Net: NetName=GND Pin=VR2-2
+Added Pin To Net: NetName=+5V Pin=VR2-3
+Added Pin To Net: NetName=NetC1_1 Pin=VR3-1
+Added Pin To Net: NetName=NetP1_2 Pin=VR3-2
+Added Pin To Net: NetName=+9V Pin=VR3-3

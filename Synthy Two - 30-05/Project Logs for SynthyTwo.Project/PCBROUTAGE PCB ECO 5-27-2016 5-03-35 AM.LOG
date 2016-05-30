@@ -1,0 +1,252 @@
+Added Component: Designator=C1(CAPR5-4X5)
+Added Component: Designator=C2(CAPR5-4X5)
+Added Component: Designator=C3(CAPR5-4X5)
+Added Component: Designator=C4(CAPR5-4X5)
+Added Component: Designator=C5(RB7.6-15)
+Added Component: Designator=C6(CAPR5-4X5)
+Added Component: Designator=C7(CAPR5-4X5)
+Added Component: Designator=C8(RB7.6-15)
+Added Component: Designator=C9(CAPR5-4X5)
+Added Component: Designator=C10(CAPR5-4X5)
+Added Component: Designator=C13(RAD-0.3)
+Added Component: Designator=C14(RB7.6-15)
+Added Component: Designator=C15(RB7.6-15)
+Added Component: Designator=C16(RB7.6-15)
+Added Component: Designator=C17(C1206)
+Added Component: Designator=C18(C1206)
+Added Component: Designator=C19(C1206)
+Added Component: Designator=C20(C1206)
+Added Component: Designator=C21(RB7.6-15)
+Added Component: Designator=C22(C1206)
+Added Component: Designator=C23(C1206)
+Added Component: Designator=C24(C1206)
+Added Component: Designator=C25(RB7.6-15)
+Added Component: Designator=C26(C1206)
+Added Component: Designator=C27(C1206)
+Added Component: Designator=C28(C1206)
+Added Component: Designator=C29(C1206)
+Added Component: Designator=C30(C1206)
+Added Component: Designator=C31(C1206)
+Added Component: Designator=C32(C1206)
+Added Component: Designator=C33(C1206)
+Added Component: Designator=C34(C1206)
+Added Component: Designator=C35(C1206)
+Added Component: Designator=C36(C1206)
+Added Component: Designator=C37(C1206)
+Added Component: Designator=D1(1N4001)
+Added Component: Designator=D2(SMC)
+Added Component: Designator=D3(DO-41)
+Added Component: Designator=D4(LED-0)
+Added Component: Designator=D5(LED-0)
+Added Component: Designator=D6(LED-0)
+Added Component: Designator=D7(LED-0)
+Added Component: Designator=D8(LED-0)
+Added Component: Designator=D9(LED-0)
+Added Component: Designator=D10(LED-0)
+Added Component: Designator=D11(LED-0)
+Added Component: Designator=D12(LED-0)
+Added Component: Designator=J1(RJ11)
+Added Component: Designator=J4(ST-3150-5N)
+Added Component: Designator=P1(HDR1X3)
+Added Component: Designator=P2(AXIAL-0.7)
+Added Component: Designator=P3(AXIAL-0.7)
+Added Component: Designator=P4(VR5)
+Added Component: Designator=P5(VR5)
+Added Component: Designator=P6(VR5)
+Added Component: Designator=P7(AXIAL-0.7)
+Added Component: Designator=P8(AXIAL-0.7)
+Added Component: Designator=P9(AXIAL-0.7)
+Added Component: Designator=P10(VR5)
+Added Component: Designator=P11(VR5)
+Added Component: Designator=Q1(TO-92A)
+Added Component: Designator=Q2(TO-92A)
+Added Component: Designator=Q3(TO-92A)
+Added Component: Designator=Q4(TO-92A)
+Added Component: Designator=R1(J1-0603)
+Added Component: Designator=R2(J1-0603)
+Added Component: Designator=R3(AXIAL-0.3)
+Added Component: Designator=R4(AXIAL-0.3)
+Added Component: Designator=R5(AXIAL-0.3)
+Added Component: Designator=R6(AXIAL-0.3)
+Added Component: Designator=R7(AXIAL-0.3)
+Added Component: Designator=R8(AXIAL-0.3)
+Added Component: Designator=R9(J1-0603)
+Added Component: Designator=R10(J1-0603)
+Added Component: Designator=R11(J1-0603)
+Added Component: Designator=R12(J1-0603)
+Added Component: Designator=R13(J1-0603)
+Added Component: Designator=R14(J1-0603)
+Added Component: Designator=R15(J1-0603)
+Added Component: Designator=R16(J1-0603)
+Added Component: Designator=R17(J1-0603)
+Added Component: Designator=R18(J1-0603)
+Added Component: Designator=R19(J1-0603)
+Added Component: Designator=R20(J1-0603)
+Added Component: Designator=R21(J1-0603)
+Added Component: Designator=R22(J1-0603)
+Added Component: Designator=R23(J1-0603)
+Added Component: Designator=R24(J1-0603)
+Added Component: Designator=R25(J1-0603)
+Added Component: Designator=R26(J1-0603)
+Added Component: Designator=R27(J1-0603)
+Added Component: Designator=R28(J1-0603)
+Added Component: Designator=R29(J1-0603)
+Added Component: Designator=R30(J1-0603)
+Added Component: Designator=R31(J1-0603)
+Added Component: Designator=R32(J1-0603)
+Added Component: Designator=R33(J1-0603)
+Added Component: Designator=R34(J1-0603)
+Added Component: Designator=R35(J1-0603)
+Added Component: Designator=R36(J1-0603)
+Added Component: Designator=R37(J1-0603)
+Added Component: Designator=R38(J1-0603)
+Added Component: Designator=R39(J1-0603)
+Added Component: Designator=R40(J1-0603)
+Added Component: Designator=R41(J1-0603)
+Added Component: Designator=R42(J1-0603)
+Added Component: Designator=R43(J1-0603)
+Added Component: Designator=R44(J1-0603)
+Added Component: Designator=R45(J1-0603)
+Added Component: Designator=R46(J1-0603)
+Added Component: Designator=R47(J1-0603)
+Added Component: Designator=R48(J1-0603)
+Added Component: Designator=R49(J1-0603)
+Added Component: Designator=R50(J1-0603)
+Added Component: Designator=R51(J1-0603)
+Added Component: Designator=R52(J1-0603)
+Added Component: Designator=R53(J1-0603)
+Added Component: Designator=R54(J1-0603)
+Added Component: Designator=R55(J1-0603)
+Added Component: Designator=R56(J1-0603)
+Added Component: Designator=R57(J1-0603)
+Added Component: Designator=R58(J1-0603)
+Added Component: Designator=R59(J1-0603)
+Added Component: Designator=R60(J1-0603)
+Added Component: Designator=R61(J1-0603)
+Added Component: Designator=R62(J1-0603)
+Added Component: Designator=R63(J1-0603)
+Added Component: Designator=R64(J1-0603)
+Added Component: Designator=R65(J1-0603)
+Added Component: Designator=R66(J1-0603)
+Added Component: Designator=R67(J1-0603)
+Added Component: Designator=R68(J1-0603)
+Added Component: Designator=R69(J1-0603)
+Added Component: Designator=R70(J1-0603)
+Added Component: Designator=R71(J1-0603)
+Added Component: Designator=R72(J1-0603)
+Added Component: Designator=R73(J1-0603)
+Added Component: Designator=R74(J1-0603)
+Added Component: Designator=R75(J1-0603)
+Added Component: Designator=R76(J1-0603)
+Added Component: Designator=R77(J1-0603)
+Added Component: Designator=R78(J1-0603)
+Added Component: Designator=R79(J1-0603)
+Added Component: Designator=R84(J1-0603)
+Added Component: Designator=R85(RESC6332)
+Added Component: Designator=R100(AXIAL-0.3)
+Added Component: Designator=R101(AXIAL-0.3)
+Added Component: Designator=R102(AXIAL-0.3)
+Added Component: Designator=R103(AXIAL-0.3)
+Added Component: Designator=R104(AXIAL-0.3)
+Added Component: Designator=R105(AXIAL-0.3)
+Added Component: Designator=R106(AXIAL-0.3)
+Added Component: Designator=R107(AXIAL-0.3)
+Added Component: Designator=R108(AXIAL-0.3)
+Added Component: Designator=R109(AXIAL-0.3)
+Added Component: Designator=R110(AXIAL-0.3)
+Added Component: Designator=R111(AXIAL-0.3)
+Added Component: Designator=R112(AXIAL-0.3)
+Added Component: Designator=R113(AXIAL-0.3)
+Added Component: Designator=R114(AXIAL-0.3)
+Added Component: Designator=R115(AXIAL-0.3)
+Added Component: Designator=S2(SPST-2)
+Added Component: Designator=S3(SPST-2)
+Added Component: Designator=S4(SPST-2)
+Added Component: Designator=S5(SPST-2)
+Added Component: Designator=S6(SPST-2)
+Added Component: Designator=U1(PIC32)
+Added Component: Designator=VR1(LM1117)
+Added Component: Designator=VR2(LM1117)
+Added Component: Designator=VR3(LM1117)
+Added Component: Designator=VR4(LM337L)
+Added Pin To Net: NetName=NetC1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_2 Pin=D1-2
+Added Pin To Net: NetName=NetC8_2 Pin=D1-3
+Added Pin To Net: NetName=NetD1_4 Pin=D1-4
+Added Pin To Net: NetName=NetJ1_1 Pin=J1-1
+Added Pin To Net: NetName=3,3V Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-3
+Added Pin To Net: NetName=NetJ1_4 Pin=J1-4
+Added Pin To Net: NetName=NetJ1_5 Pin=J1-5
+Added Pin To Net: NetName=NetR91_1 Pin=U1-1
+Added Pin To Net: NetName=NetR95_1 Pin=U1-2
+Added Pin To Net: NetName=NetR96_1 Pin=U1-3
+Added Pin To Net: NetName=NetR11_1 Pin=U1-4
+Added Pin To Net: NetName=NetR97_1 Pin=U1-5
+Added Pin To Net: NetName=NetR10_1 Pin=U1-6
+Added Pin To Net: NetName=NetJ1_1 Pin=U1-7
+Added Pin To Net: NetName=NetR98_1 Pin=U1-8
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=3,3V Pin=U1-10
+Added Pin To Net: NetName=NetR90_1 Pin=U1-11
+Added Pin To Net: NetName=NetR112_1 Pin=U1-12
+Added Pin To Net: NetName=NetR113_1 Pin=U1-13
+Added Pin To Net: NetName=NetR114_1 Pin=U1-14
+Added Pin To Net: NetName=NetJ1_5 Pin=U1-15
+Added Pin To Net: NetName=NetJ1_4 Pin=U1-16
+Added Pin To Net: NetName=NetR115_1 Pin=U1-17
+Added Pin To Net: NetName=NetR89_1 Pin=U1-18
+Added Pin To Net: NetName=3,3V Pin=U1-19
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Pin To Net: NetName=NetR6_1 Pin=U1-21
+Added Pin To Net: NetName=NetR99_1 Pin=U1-22
+Added Pin To Net: NetName=NetDisplay_7 Pin=U1-23
+Added Pin To Net: NetName=NetDisplay_8 Pin=U1-24
+Added Pin To Net: NetName=GND Pin=U1-25
+Added Pin To Net: NetName=3,3V Pin=U1-26
+Added Pin To Net: NetName=NetDisplay_9 Pin=U1-27
+Added Pin To Net: NetName=NetDisplay_10 Pin=U1-28
+Added Pin To Net: NetName=NetDisplay_4 Pin=U1-29
+Added Pin To Net: NetName=NetDisplay_6 Pin=U1-30
+Added Pin To Net: NetName=3,3V Pin=U1-38
+Added Pin To Net: NetName=NetC12_2 Pin=U1-39
+Added Pin To Net: NetName=NetC11_2 Pin=U1-40
+Added Pin To Net: NetName=GND Pin=U1-41
+Added Pin To Net: NetName=NetR65_1 Pin=U1-46
+Added Pin To Net: NetName=NetU1_47 Pin=U1-47
+Added Pin To Net: NetName=NetU1_48 Pin=U1-48
+Added Pin To Net: NetName=NetR71_1 Pin=U1-49
+Added Pin To Net: NetName=NetR76_1 Pin=U1-50
+Added Pin To Net: NetName=NetR9_1 Pin=U1-51
+Added Pin To Net: NetName=NetR12_1 Pin=U1-52
+Added Pin To Net: NetName=NetR86_1 Pin=U1-53
+Added Pin To Net: NetName=NetR87_1 Pin=U1-54
+Added Pin To Net: NetName=NetR88_1 Pin=U1-55
+Added Pin To Net: NetName=NetC13_2 Pin=U1-56
+Added Pin To Net: NetName=3,3V Pin=U1-57
+Added Pin To Net: NetName=NetR94_1 Pin=U1-58
+Added Pin To Net: NetName=NetR93_1 Pin=U1-59
+Added Pin To Net: NetName=NetR92_1 Pin=U1-60
+Added Pin To Net: NetName=NetR108_1 Pin=U1-61
+Added Pin To Net: NetName=NetR109_1 Pin=U1-62
+Added Pin To Net: NetName=NetR110_1 Pin=U1-63
+Added Pin To Net: NetName=NetR111_1 Pin=U1-64
+Added Pin To Net: NetName=NetC1_1 Pin=VR1-1
+Added Pin To Net: NetName=GND Pin=VR1-2
+Added Pin To Net: NetName=+3.3V Pin=VR1-3
+Added Pin To Net: NetName=NetC1_1 Pin=VR2-1
+Added Pin To Net: NetName=GND Pin=VR2-2
+Added Pin To Net: NetName=+5V Pin=VR2-3
+Added Pin To Net: NetName=NetC1_1 Pin=VR3-1
+Added Pin To Net: NetName=NetP2_2 Pin=VR3-2
+Added Pin To Net: NetName=+9V Pin=VR3-3
+Added Pin To Net: NetName=NetC8_2 Pin=VR4-1
+Added Pin To Net: NetName=NetP3_1 Pin=VR4-2
+Added Pin To Net: NetName=-9V Pin=VR4-3
+Added Member To Class: ClassName=Alimentation Member=Component D1 4x 1N4001
+Added Member To Class: ClassName=PIC Member=Component J1 Program/Debug
+Added Member To Class: ClassName=PIC Member=Component U1 PIC32MX575F512H
+Added Member To Class: ClassName=Alimentation Member=Component VR1 LM1117-3.3
+Added Member To Class: ClassName=Alimentation Member=Component VR2 LM1117-5.0
+Added Member To Class: ClassName=Alimentation Member=Component VR3 LM1117-ADJ
+Added Member To Class: ClassName=Alimentation Member=Component VR4 LM337L

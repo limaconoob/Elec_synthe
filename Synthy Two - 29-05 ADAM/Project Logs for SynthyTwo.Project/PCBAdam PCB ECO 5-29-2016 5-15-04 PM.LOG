@@ -1,0 +1,64 @@
+Added Component: Designator=U1(PIC32)
+Added Pin To Net: NetName=NetR92_1 Pin=U1-1
+Added Pin To Net: NetName=NetR96_1 Pin=U1-2
+Added Pin To Net: NetName=NetR97_1 Pin=U1-3
+Added Pin To Net: NetName=NetR98_1 Pin=U1-4
+Added Pin To Net: NetName=NetR99_1 Pin=U1-5
+Added Pin To Net: NetName=NetR91_1 Pin=U1-6
+Added Pin To Net: NetName=NetJ1_1 Pin=U1-7
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=+3,3V Pin=U1-10
+Added Pin To Net: NetName=NetR113_1 Pin=U1-11
+Added Pin To Net: NetName=NetR114_1 Pin=U1-12
+Added Pin To Net: NetName=NetR115_1 Pin=U1-13
+Added Pin To Net: NetName=NetR116_1 Pin=U1-14
+Added Pin To Net: NetName=NetR90_1 Pin=U1-15
+Added Pin To Net: NetName=NetR100_1 Pin=U1-16
+Added Pin To Net: NetName=NetJ1_5 Pin=U1-17
+Added Pin To Net: NetName=NetJ1_4 Pin=U1-18
+Added Pin To Net: NetName=+3,3V Pin=U1-19
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Pin To Net: NetName=NetR7_1 Pin=U1-21
+Added Pin To Net: NetName=NetDisplay1_7 Pin=U1-23
+Added Pin To Net: NetName=NetDisplay1_8 Pin=U1-24
+Added Pin To Net: NetName=GND Pin=U1-25
+Added Pin To Net: NetName=+3,3V Pin=U1-26
+Added Pin To Net: NetName=NetDisplay1_9 Pin=U1-27
+Added Pin To Net: NetName=NetDisplay1_10 Pin=U1-28
+Added Pin To Net: NetName=NetR12_1 Pin=U1-29
+Added Pin To Net: NetName=NetDisplay1_4 Pin=U1-30
+Added Pin To Net: NetName=NetDisplay1_6 Pin=U1-31
+Added Pin To Net: NetName=NetR11_1 Pin=U1-32
+Added Pin To Net: NetName=+3,3V Pin=U1-38
+Added Pin To Net: NetName=NetC12_2 Pin=U1-39
+Added Pin To Net: NetName=NetC11_2 Pin=U1-40
+Added Pin To Net: NetName=GND Pin=U1-41
+Added Pin To Net: NetName=NetR66_1 Pin=U1-46
+Added Pin To Net: NetName=NetU1_47 Pin=U1-47
+Added Pin To Net: NetName=NetU1_48 Pin=U1-48
+Added Pin To Net: NetName=NetR72_1 Pin=U1-49
+Added Pin To Net: NetName=NetR77_1 Pin=U1-50
+Added Pin To Net: NetName=NetR10_1 Pin=U1-51
+Added Pin To Net: NetName=NetR13_1 Pin=U1-52
+Added Pin To Net: NetName=NetR87_1 Pin=U1-53
+Added Pin To Net: NetName=NetR88_1 Pin=U1-54
+Added Pin To Net: NetName=NetR89_1 Pin=U1-55
+Added Pin To Net: NetName=NetC13_2 Pin=U1-56
+Added Pin To Net: NetName=+3,3V Pin=U1-57
+Added Pin To Net: NetName=NetR95_1 Pin=U1-58
+Added Pin To Net: NetName=NetR94_1 Pin=U1-59
+Added Pin To Net: NetName=NetR93_1 Pin=U1-60
+Added Pin To Net: NetName=NetR109_1 Pin=U1-61
+Added Pin To Net: NetName=NetR110_1 Pin=U1-62
+Added Pin To Net: NetName=NetR111_1 Pin=U1-63
+Added Pin To Net: NetName=NetR112_1 Pin=U1-64
+Added Member To Class: ClassName=PIC Member=Component U1 PIC32MX575F512H
+Added Room: Name=Alimentation
+Added Room: Name=Controle du Filtre
+Added Room: Name=DAC
+Added Room: Name=Display
+Added Room: Name=Encodeurs
+Added Room: Name=Filtres
+Added Room: Name=MIDI IN
+Added Room: Name=Multiplexeur
+Added Room: Name=PIC

@@ -1,0 +1,5 @@
+Added Component: Designator=P9(ALPS Potentiometer)
+Added Pin To Net: NetName=GND Pin=P9-1
+Added Pin To Net: NetName=NetP9_2 Pin=P9-2
+Added Pin To Net: NetName=NetC36_1 Pin=P9-3
+Added Pin To Net: NetName=NetDisplay1_3 Pin=P10-3

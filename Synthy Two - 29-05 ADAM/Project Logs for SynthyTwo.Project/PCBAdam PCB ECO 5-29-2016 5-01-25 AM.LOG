@@ -1,0 +1,11 @@
+Added Component: Designator=J3(SOCKET MIDI)
+Added Component: Designator=J4(SOCKET MIDI)
+Added Component: Designator=J5(1503 09)
+Added Pin To Net: NetName=NetJ3_4 Pin=J3-4
+Added Pin To Net: NetName=NetD2_1 Pin=J3-5
+Added Pin To Net: NetName=GND Pin=J4-2
+Added Pin To Net: NetName=NetJ4_4 Pin=J4-4
+Added Pin To Net: NetName=NetJ4_5 Pin=J4-5
+Added Pin To Net: NetName=GND Pin=J5-1
+Added Pin To Net: NetName=NetJ5_2 Pin=J5-2
+Added Pin To Net: NetName=NetJ5_4 Pin=J5-4

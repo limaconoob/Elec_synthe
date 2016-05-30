@@ -1,0 +1,26 @@
+Added Component: Designator=J1(RJ11)
+Added Component: Designator=J2(SOCKET MIDI)
+Added Component: Designator=J3(SOCKET MIDI)
+Added Component: Designator=P9(ALPS Potentiometer)
+Added Pin To Net: NetName=NetJ1_1 Pin=J1-1
+Added Pin To Net: NetName=+3.3V Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-3
+Added Pin To Net: NetName=NetJ1_4 Pin=J1-4
+Added Pin To Net: NetName=NetJ1_5 Pin=J1-5
+Added Pin To Net: NetName=NetJ2_4 Pin=J2-4
+Added Pin To Net: NetName=NetD2_1 Pin=J2-5
+Added Pin To Net: NetName=GND Pin=J3-2
+Added Pin To Net: NetName=NetJ3_4 Pin=J3-4
+Added Pin To Net: NetName=NetJ3_5 Pin=J3-5
+Added Pin To Net: NetName=GND Pin=P9-1
+Added Pin To Net: NetName=NetP9_2 Pin=P9-2
+Added Pin To Net: NetName=NetC48_1 Pin=P9-3
+Added Pin To Net: NetName=+3.3V Pin=R101-1
+Added Pin To Net: NetName=+3.3V Pin=R102-2
+Added Pin To Net: NetName=+3.3V Pin=R103-1
+Added Pin To Net: NetName=+3.3V Pin=R104-2
+Added Pin To Net: NetName=+3.3V Pin=R105-1
+Added Pin To Net: NetName=+3.3V Pin=R106-2
+Added Pin To Net: NetName=+3.3V Pin=R107-1
+Added Pin To Net: NetName=+3.3V Pin=R108-2
+Change Net Name : Old Net Name=+3.3V New Net Name=+3,3V
