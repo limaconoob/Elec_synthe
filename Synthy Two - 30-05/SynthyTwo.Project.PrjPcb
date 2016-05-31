@@ -255,26 +255,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=QSKGPXUU
-
-[Document14]
-DocumentPath=PCBAdam.PcbDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
 DocumentUniqueId=OGVFJEGP
 
-[Document15]
+[Document14]
 DocumentPath=PCB Meca.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -291,7 +274,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=YIOYFMSX
 
-[Document16]
+[Document15]
 DocumentPath=PCB Base Meca.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -307,6 +290,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EKFAMUEM
+
+[Document16]
+DocumentPath=PCBAdamV2.PcbDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=HFWFMVGW
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for SynthyTwo.Project\Design Rule Check - PCBAdam.html

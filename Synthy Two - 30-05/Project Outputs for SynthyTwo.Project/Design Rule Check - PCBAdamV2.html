@@ -1,0 +1,509 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD14\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">5/31/2016</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">7:58:12 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc" class="file"><acronym title="C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc">C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">44</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDASAOOB"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAEBOOB">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAKBOOB">Rule</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAQBOOB">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAWBOOB">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA2BOOB">Silk to Silk (Clearance=0.05mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDACCOOB">Silk To Solder Mask (Clearance=0.05mm) (IsPad),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDA4DOOB">Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)</a></td>
+<td class="column2">11</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAHHOOB">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDANHOOB">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">15</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAQSOOB">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAWSOOB">Width Constraint (Min=0.2mm) (Max=5mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDA2SOOB">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDACTOOB">Clearance Constraint (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAITOOB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAWVOOB">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">44</td>
+</tr>
+</table><br><hr><a name="IDACCOOB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk To Solder Mask (Clearance=0.05mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.552mil|Location2.X=3133.882mil|Location1.Y=4832.629mil|Location2.Y=4916.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.552mil|Location2.X=3133.882mil|Location1.Y=4832.629mil|Location2.Y=4916.597mil|Absolute=True">Text "C25" (-20.599mm,72.949mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3062.26mil|Location2.X=3101.756mil|Location1.Y=4808.755mil|Location2.Y=4848.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3062.26mil|Location2.X=3101.756mil|Location1.Y=4808.755mil|Location2.Y=4848.251mil|Absolute=True">Pad R22-2(-21.717mm,72.644mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2573.126mil|Location2.X=2657.093mil|Location1.Y=4881.126mil|Location2.Y=4922.456mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2573.126mil|Location2.X=2657.093mil|Location1.Y=4881.126mil|Location2.Y=4922.456mil|Absolute=True">Text "U4C" (-34.443mm,74.181mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2573.196mil|Location2.X=2642.22mil|Location1.Y=4879.692mil|Location2.Y=4911.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2573.196mil|Location2.X=2642.22mil|Location1.Y=4879.692mil|Location2.Y=4911.314mil|Absolute=True">Pad U4-2(-33.764mm,74.346mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2633.134mil|Location2.X=2717.101mil|Location1.Y=5116.629mil|Location2.Y=5157.96mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2633.134mil|Location2.X=2717.101mil|Location1.Y=5116.629mil|Location2.Y=5157.96mil|Absolute=True">Text "R48" (-32.918mm,80.162mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.032mil|Location2.X=2639.984mil|Location1.Y=5134.181mil|Location2.Y=5226.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2504.032mil|Location2.X=2639.984mil|Location1.Y=5134.181mil|Location2.Y=5226.827mil|Absolute=True">Pad VR2-3(-34.671mm,81.585mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4353.551mil|Location2.X=4394.882mil|Location1.Y=3835.629mil|Location2.Y=3919.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4353.551mil|Location2.X=4394.882mil|Location1.Y=3835.629mil|Location2.Y=3919.597mil|Absolute=True">Text "R73" (11.43mm,47.625mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.26mil|Location2.X=4394.756mil|Location1.Y=3911.755mil|Location2.Y=3951.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.26mil|Location2.X=4394.756mil|Location1.Y=3911.755mil|Location2.Y=3951.251mil|Absolute=True">Pad R73-2(11.125mm,49.86mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2238.497mil|Location2.X=2296.882mil|Location1.Y=4192.047mil|Location2.Y=4233.377mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2238.497mil|Location2.X=2296.882mil|Location1.Y=4192.047mil|Location2.Y=4233.377mil|Absolute=True">Text "U9" (-41.859mm,57.328mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2257.796mil|Location2.X=2336.536mil|Location1.Y=4149.448mil|Location2.Y=4228.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2257.796mil|Location2.X=2336.536mil|Location1.Y=4149.448mil|Location2.Y=4228.188mil|Absolute=True">Pad P9-3(-41.652mm,56.396mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2543.552mil|Location2.X=2584.882mil|Location1.Y=4494.629mil|Location2.Y=4578.597mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2543.552mil|Location2.X=2584.882mil|Location1.Y=4494.629mil|Location2.Y=4578.597mil|Absolute=True">Text "R45" (-34.544mm,64.364mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.953mil|Location2.X=2576.063mil|Location1.Y=4405.355mil|Location2.Y=4523.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.953mil|Location2.X=2576.063mil|Location1.Y=4405.355mil|Location2.Y=4523.465mil|Absolute=True">Pad P9-0(-36.068mm,63.396mm)  Multi-Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDA4DOOB"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2368.228mil|Location2.X=2403.787mil|Location1.Y=4688.724mil|Location2.Y=4724.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2368.228mil|Location2.X=2403.787mil|Location1.Y=4688.724mil|Location2.Y=4724.283mil|Absolute=True">Via (-39.395mm,69.545mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2340.26mil|Location2.X=2379.756mil|Location1.Y=4648.755mil|Location2.Y=4688.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2340.26mil|Location2.X=2379.756mil|Location1.Y=4648.755mil|Location2.Y=4688.251mil|Absolute=True">Pad R47-2(-40.056mm,68.58mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2446.228mil|Location2.X=2481.787mil|Location1.Y=4971.724mil|Location2.Y=5007.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2446.228mil|Location2.X=2481.787mil|Location1.Y=4971.724mil|Location2.Y=5007.283mil|Absolute=True">Via (-37.414mm,76.733mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2405.26mil|Location2.X=2444.756mil|Location1.Y=4967.755mil|Location2.Y=5007.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2405.26mil|Location2.X=2444.756mil|Location1.Y=4967.755mil|Location2.Y=5007.251mil|Absolute=True">Pad R55-1(-38.405mm,76.683mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2533.228mil|Location2.X=2568.787mil|Location1.Y=4725.724mil|Location2.Y=4761.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2533.228mil|Location2.X=2568.787mil|Location1.Y=4725.724mil|Location2.Y=4761.283mil|Absolute=True">Via (-35.204mm,70.485mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.26mil|Location2.X=2532.756mil|Location1.Y=4730.755mil|Location2.Y=4770.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.26mil|Location2.X=2532.756mil|Location1.Y=4730.755mil|Location2.Y=4770.251mil|Absolute=True">Pad R46-1(-36.17mm,70.663mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2534.228mil|Location2.X=2569.787mil|Location1.Y=4794.724mil|Location2.Y=4830.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2534.228mil|Location2.X=2569.787mil|Location1.Y=4794.724mil|Location2.Y=4830.283mil|Absolute=True">Via (-35.179mm,72.238mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.26mil|Location2.X=2532.756mil|Location1.Y=4789.755mil|Location2.Y=4829.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.26mil|Location2.X=2532.756mil|Location1.Y=4789.755mil|Location2.Y=4829.251mil|Absolute=True">Pad R46-2(-36.17mm,72.161mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3287.228mil|Location2.X=3322.787mil|Location1.Y=4976.724mil|Location2.Y=5012.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3287.228mil|Location2.X=3322.787mil|Location1.Y=4976.724mil|Location2.Y=5012.283mil|Absolute=True">Via (-16.053mm,76.86mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3323.197mil|Location2.X=3392.22mil|Location1.Y=4978.692mil|Location2.Y=5010.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3323.197mil|Location2.X=3392.22mil|Location1.Y=4978.692mil|Location2.Y=5010.314mil|Absolute=True">Pad U3B-3(-14.714mm,76.86mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.228mil|Location2.X=2869.787mil|Location1.Y=3780.724mil|Location2.Y=3816.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.228mil|Location2.X=2869.787mil|Location1.Y=3780.724mil|Location2.Y=3816.283mil|Absolute=True">Via (-27.559mm,46.482mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.26mil|Location2.X=2873.756mil|Location1.Y=3740.755mil|Location2.Y=3780.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2834.26mil|Location2.X=2873.756mil|Location1.Y=3740.755mil|Location2.Y=3780.251mil|Absolute=True">Pad C48-1(-27.508mm,45.517mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3724.228mil|Location2.X=3759.787mil|Location1.Y=4280.724mil|Location2.Y=4316.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3724.228mil|Location2.X=3759.787mil|Location1.Y=4280.724mil|Location2.Y=4316.283mil|Absolute=True">Via (-4.953mm,59.182mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3760.26mil|Location2.X=3799.756mil|Location1.Y=4280.755mil|Location2.Y=4320.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3760.26mil|Location2.X=3799.756mil|Location1.Y=4280.755mil|Location2.Y=4320.251mil|Absolute=True">Pad C37-2(-3.988mm,59.233mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2520.228mil|Location2.X=2555.787mil|Location1.Y=3861.724mil|Location2.Y=3897.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2520.228mil|Location2.X=2555.787mil|Location1.Y=3861.724mil|Location2.Y=3897.283mil|Absolute=True">Via (-35.535mm,48.539mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2451.197mil|Location2.X=2520.22mil|Location1.Y=3882.692mil|Location2.Y=3914.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2451.197mil|Location2.X=2520.22mil|Location1.Y=3882.692mil|Location2.Y=3914.314mil|Absolute=True">Pad U6C-2(-36.863mm,49.022mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4409.228mil|Location2.X=4444.787mil|Location1.Y=4780.724mil|Location2.Y=4816.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4409.228mil|Location2.X=4444.787mil|Location1.Y=4780.724mil|Location2.Y=4816.283mil|Absolute=True">Via (12.446mm,71.882mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4374.26mil|Location2.X=4413.756mil|Location1.Y=4746.755mil|Location2.Y=4786.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4374.26mil|Location2.X=4413.756mil|Location1.Y=4746.755mil|Location2.Y=4786.251mil|Absolute=True">Pad R30-2(11.608mm,71.069mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2229.228mil|Location2.X=2264.787mil|Location1.Y=4264.724mil|Location2.Y=4300.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2229.228mil|Location2.X=2264.787mil|Location1.Y=4264.724mil|Location2.Y=4300.283mil|Absolute=True">Via (-42.926mm,58.776mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.228mil|Location2.X=2286.787mil|Location1.Y=4234.724mil|Location2.Y=4270.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.228mil|Location2.X=2286.787mil|Location1.Y=4234.724mil|Location2.Y=4270.283mil|Absolute=True">Via (-42.367mm,58.014mm) Top Layer to Bottom Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3256.228mil|Location2.X=3291.787mil|Location1.Y=4997.224mil|Location2.Y=5032.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3256.228mil|Location2.X=3291.787mil|Location1.Y=4997.224mil|Location2.Y=5032.783mil|Absolute=True">Via (-16.84mm,77.381mm) Top Layer to Bottom Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3287.228mil|Location2.X=3322.787mil|Location1.Y=4976.724mil|Location2.Y=5012.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3287.228mil|Location2.X=3322.787mil|Location1.Y=4976.724mil|Location2.Y=5012.283mil|Absolute=True">Via (-16.053mm,76.86mm) Top Layer to Bottom Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDANHOOB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3582.957mil|Location2.X=3712.159mil|Location1.Y=5987.603mil|Location2.Y=6116.805mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3582.957mil|Location2.X=3712.159mil|Location1.Y=5987.603mil|Location2.Y=6116.805mil|Absolute=True">Hole Size Constraint (3.25mm &gt; 2.54mm) : Pad J1-0(-7.352mm,103.726mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.957mil|Location2.X=4112.159mil|Location1.Y=5987.603mil|Location2.Y=6116.805mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3982.957mil|Location2.X=4112.159mil|Location1.Y=5987.603mil|Location2.Y=6116.805mil|Absolute=True">Hole Size Constraint (3.25mm &gt; 2.54mm) : Pad J1-0(2.808mm,103.726mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5772.997mil|Location2.X=5880.546mil|Location1.Y=5143.075mil|Location2.Y=5250.624mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5772.997mil|Location2.X=5880.546mil|Location1.Y=5143.075mil|Location2.Y=5250.624mil|Absolute=True">Hole Size Constraint (2.7mm &gt; 2.54mm) : Pad Display1-0(48mm,82mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2837.997mil|Location2.X=2945.546mil|Location1.Y=5143.075mil|Location2.Y=5250.624mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2837.997mil|Location2.X=2945.546mil|Location1.Y=5143.075mil|Location2.Y=5250.624mil|Absolute=True">Hole Size Constraint (2.7mm &gt; 2.54mm) : Pad Display1-0(-26.549mm,82mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5772.997mil|Location2.X=5880.546mil|Location1.Y=3938.075mil|Location2.Y=4045.624mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5772.997mil|Location2.X=5880.546mil|Location1.Y=3938.075mil|Location2.Y=4045.624mil|Absolute=True">Hole Size Constraint (2.7mm &gt; 2.54mm) : Pad Display1-0(48mm,51.393mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2015.91mil|Location2.X=2135.27mil|Location1.Y=4404.73mil|Location2.Y=4524.09mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2015.91mil|Location2.X=2135.27mil|Location1.Y=4404.73mil|Location2.Y=4524.09mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad P9-0(-47.28mm,63.396mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.328mil|Location2.X=2576.688mil|Location1.Y=4404.73mil|Location2.Y=4524.09mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2457.328mil|Location2.X=2576.688mil|Location1.Y=4404.73mil|Location2.Y=4524.09mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad P9-0(-36.068mm,63.396mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5135.596mil|Location2.X=5254.956mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5135.596mil|Location2.X=5254.956mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad ED-0(31.96mm,7.5mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5577.012mil|Location2.X=5696.372mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5577.012mil|Location2.X=5696.372mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad ED-0(43.172mm,7.507mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4151.344mil|Location2.X=4270.704mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4151.344mil|Location2.X=4270.704mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad EC-0(6.96mm,7.5mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4592.76mil|Location2.X=4712.12mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4592.76mil|Location2.X=4712.12mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad EC-0(18.172mm,7.507mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3167.092mil|Location2.X=3286.452mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3167.092mil|Location2.X=3286.452mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad EB-0(-18.04mm,7.5mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3608.508mil|Location2.X=3727.868mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3608.508mil|Location2.X=3727.868mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad EB-0(-6.828mm,7.507mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2182.84mil|Location2.X=2302.2mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2182.84mil|Location2.X=2302.2mil|Location1.Y=2204.1mil|Location2.Y=2323.46mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad EA-0(-43.04mm,7.5mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2624.256mil|Location2.X=2743.616mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2624.256mil|Location2.X=2743.616mil|Location1.Y=2204.374mil|Location2.Y=2323.734mil|Absolute=True">Hole Size Constraint (3mm &gt; 2.54mm) : Pad EA-0(-31.828mm,7.507mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDAITOOB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.488mil|Location2.X=3188.976mil|Location1.Y=6092.756mil|Location2.Y=6174.252mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3094.488mil|Location2.X=3188.976mil|Location1.Y=6092.756mil|Location2.Y=6174.252mil|Absolute=True">Un-Routed Net Constraint: Net NetC8_2 Between Pad VR4-1 (-20.2,105.156mm) And Pad VR4-1 (-20.2,106.426mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.764mil|Location2.X=3188.976mil|Location1.Y=6092.756mil|Location2.Y=6124.252mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2889.764mil|Location2.X=3188.976mil|Location1.Y=6092.756mil|Location2.Y=6124.252mil|Absolute=True">Un-Routed Net Constraint: Net NetC8_2 Between Pad VR4-1 (-25.4,105.156mm) And Pad VR4-1 (-20.2,105.156mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5404.008mil|Location2.X=5613.544mil|Location1.Y=2530.047mil|Location2.Y=2659.054mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5404.008mil|Location2.X=5613.544mil|Location1.Y=2530.047mil|Location2.Y=2659.054mil|Absolute=True">Un-Routed Net Constraint: Net NetC57_2 Between Pad R116-2 (39.802,16.803mm) And Track on layer Top Layer (40.044,15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3991.008mil|Location2.X=4237.008mil|Location1.Y=4879.503mil|Location2.Y=5089.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3991.008mil|Location2.X=4237.008mil|Location1.Y=4879.503mil|Location2.Y=5089.503mil|Absolute=True">Un-Routed Net Constraint: Net NetC34_2 Between Track on layer Bottom Layer (3.912,76.479mm) And Track on layer Top Layer (5.08,76.733mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2195.008mil|Location2.X=2397.166mil|Location1.Y=3620.503mil|Location2.Y=3808.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2195.008mil|Location2.X=2397.166mil|Location1.Y=3620.503mil|Location2.Y=3808.504mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R86-2 (-41.707,44.501mm) And Track on layer Bottom Layer (-41.652,44.196mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2865.26mil|Location2.X=2964.756mil|Location1.Y=3950.755mil|Location2.Y=3990.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2865.26mil|Location2.X=2964.756mil|Location1.Y=3950.755mil|Location2.Y=3990.251mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C44-1 (-26.721,50.851mm) And Pad C43-1 (-25.197,50.851mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.008mil|Location2.X=3610.008mil|Location1.Y=5262.503mil|Location2.Y=5458.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3341.008mil|Location2.X=3610.008mil|Location1.Y=5262.503mil|Location2.Y=5458.503mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track on layer Top Layer (-12.598,86.208mm) And Pad C20-2 (-10.846,86.106mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3481.198mil|Location2.X=3762.008mil|Location1.Y=5218.503mil|Location2.Y=5413.503mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3481.198mil|Location2.X=3762.008mil|Location1.Y=5218.503mil|Location2.Y=5413.503mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track on layer Bottom Layer (-9.038,85.09mm) And Pad U2-12 (-6.985,84.963mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2847.339mil|Location2.X=3168.331mil|Location1.Y=5635.528mil|Location2.Y=5771.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2847.339mil|Location2.X=3168.331mil|Location1.Y=5635.528mil|Location2.Y=5771.48mil|Absolute=True">Un-Routed Net Constraint: Net +9V Between Pad VR3-3 (-26.501,94.869mm) And Pad VR3-3 (-20.701,94.869mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2467.008mil|Location2.X=2672.008mil|Location1.Y=5091.503mil|Location2.Y=5508.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2467.008mil|Location2.X=2672.008mil|Location1.Y=5091.503mil|Location2.Y=5508.85mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Track on layer Top Layer (-34.798,81.864mm) And Pad VR2-3 (-34.671,87.385mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4792.008mil|Location2.X=4997.008mil|Location1.Y=4744.504mil|Location2.Y=4968.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4792.008mil|Location2.X=4997.008mil|Location1.Y=4744.504mil|Location2.Y=4968.504mil|Absolute=True">Un-Routed Net Constraint: Net +3,3V Between Track on layer Top Layer (24.257,73.05mm) And Track on layer Bottom Layer (24.384,73.66mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2059.032mil|Location2.X=2194.984mil|Location1.Y=5083.833mil|Location2.Y=5404.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2059.032mil|Location2.X=2194.984mil|Location1.Y=5083.833mil|Location2.Y=5404.827mil|Absolute=True">Un-Routed Net Constraint: Net +3,3V Between Pad VR1-3 (-45.974,80.306mm) And Pad VR1-3 (-45.974,86.106mm)</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

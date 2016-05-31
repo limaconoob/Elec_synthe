@@ -1,0 +1,114 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\bocal\Desktop\Elec_Synthe\Synthy Two - 30-05\PCBAdamV2.PcbDoc
+Date     : 5/31/2016
+Time     : 7:58:12 AM
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Rule
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Silk primitive without silk layer
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0.05mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0.05mm) (IsPad),(All)
+   Violation between Text "C25" (-20.599mm,72.949mm)  Top Overlay and 
+                     Pad R22-2(-21.717mm,72.644mm)  Top Layer
+   Violation between Text "U4C" (-34.443mm,74.181mm)  Top Overlay and 
+                     Pad U4-2(-33.764mm,74.346mm)  Top Layer
+   Violation between Text "R48" (-32.918mm,80.162mm)  Top Overlay and 
+                     Pad VR2-3(-34.671mm,81.585mm)  Top Layer
+   Violation between Text "R73" (11.43mm,47.625mm)  Top Overlay and 
+                     Pad R73-2(11.125mm,49.86mm)  Top Layer
+   Violation between Text "U9" (-41.859mm,57.328mm)  Top Overlay and 
+                     Pad P9-3(-41.652mm,56.396mm)  Multi-Layer
+   Violation between Text "R45" (-34.544mm,64.364mm)  Top Overlay and 
+                     Pad P9-0(-36.068mm,63.396mm)  Multi-Layer
+Rule Violations :6
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.05mm) (All),(All)
+   Violation between Via (-39.395mm,69.545mm) Top Layer to Bottom Layer and 
+                     Pad R47-2(-40.056mm,68.58mm)  Top Layer
+   Violation between Via (-37.414mm,76.733mm) Top Layer to Bottom Layer and 
+                     Pad R55-1(-38.405mm,76.683mm)  Top Layer
+   Violation between Via (-35.204mm,70.485mm) Top Layer to Bottom Layer and 
+                     Pad R46-1(-36.17mm,70.663mm)  Top Layer
+   Violation between Via (-35.179mm,72.238mm) Top Layer to Bottom Layer and 
+                     Pad R46-2(-36.17mm,72.161mm)  Top Layer
+   Violation between Via (-16.053mm,76.86mm) Top Layer to Bottom Layer and 
+                     Pad U3B-3(-14.714mm,76.86mm)  Top Layer
+   Violation between Via (-27.559mm,46.482mm) Top Layer to Bottom Layer and 
+                     Pad C48-1(-27.508mm,45.517mm)  Top Layer
+   Violation between Via (-4.953mm,59.182mm) Top Layer to Bottom Layer and 
+                     Pad C37-2(-3.988mm,59.233mm)  Top Layer
+   Violation between Via (-35.535mm,48.539mm) Top Layer to Bottom Layer and 
+                     Pad U6C-2(-36.863mm,49.022mm)  Top Layer
+   Violation between Via (12.446mm,71.882mm) Top Layer to Bottom Layer and 
+                     Pad R30-2(11.608mm,71.069mm)  Top Layer
+   Violation between Via (-42.926mm,58.776mm) Top Layer to Bottom Layer and 
+                     Via (-42.367mm,58.014mm) Top Layer to Bottom Layer
+   Violation between Via (-16.84mm,77.381mm) Top Layer to Bottom Layer and 
+                     Via (-16.053mm,76.86mm) Top Layer to Bottom Layer
+Rule Violations :11
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+   Violation between Hole Size Constraint (3.25mm > 2.54mm) : Pad J1-0(-7.352mm,103.726mm)  Multi-Layer
+   Violation between Hole Size Constraint (3.25mm > 2.54mm) : Pad J1-0(2.808mm,103.726mm)  Multi-Layer
+   Violation between Hole Size Constraint (2.7mm > 2.54mm) : Pad Display1-0(48mm,82mm)  Multi-Layer
+   Violation between Hole Size Constraint (2.7mm > 2.54mm) : Pad Display1-0(-26.549mm,82mm)  Multi-Layer
+   Violation between Hole Size Constraint (2.7mm > 2.54mm) : Pad Display1-0(48mm,51.393mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad P9-0(-47.28mm,63.396mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad P9-0(-36.068mm,63.396mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad ED-0(31.96mm,7.5mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad ED-0(43.172mm,7.507mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad EC-0(6.96mm,7.5mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad EC-0(18.172mm,7.507mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad EB-0(-18.04mm,7.5mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad EB-0(-6.828mm,7.507mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad EA-0(-43.04mm,7.5mm)  Multi-Layer
+   Violation between Hole Size Constraint (3mm > 2.54mm) : Pad EA-0(-31.828mm,7.507mm)  Multi-Layer
+Rule Violations :15
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.2mm) (Max=5mm) (Preferred=0.2mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0.1mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net NetC8_2 Between Pad VR4-1 (-20.2,105.156mm) And Pad VR4-1 (-20.2,106.426mm)
+   Violation between Un-Routed Net Constraint: Net NetC8_2 Between Pad VR4-1 (-25.4,105.156mm) And Pad VR4-1 (-20.2,105.156mm)
+   Violation between Un-Routed Net Constraint: Net NetC57_2 Between Pad R116-2 (39.802,16.803mm) And Track on layer Top Layer (40.044,15mm)
+   Violation between Un-Routed Net Constraint: Net NetC34_2 Between Track on layer Bottom Layer (3.912,76.479mm) And Track on layer Top Layer (5.08,76.733mm)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad R86-2 (-41.707,44.501mm) And Track on layer Bottom Layer (-41.652,44.196mm)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C44-1 (-26.721,50.851mm) And Pad C43-1 (-25.197,50.851mm)
+   Violation between Un-Routed Net Constraint: Net GND Between Track on layer Top Layer (-12.598,86.208mm) And Pad C20-2 (-10.846,86.106mm)
+   Violation between Un-Routed Net Constraint: Net GND Between Track on layer Bottom Layer (-9.038,85.09mm) And Pad U2-12 (-6.985,84.963mm)
+   Violation between Un-Routed Net Constraint: Net +9V Between Pad VR3-3 (-26.501,94.869mm) And Pad VR3-3 (-20.701,94.869mm)
+   Violation between Un-Routed Net Constraint: Net +5V Between Track on layer Top Layer (-34.798,81.864mm) And Pad VR2-3 (-34.671,87.385mm)
+   Violation between Un-Routed Net Constraint: Net +3,3V Between Track on layer Top Layer (24.257,73.05mm) And Track on layer Bottom Layer (24.384,73.66mm)
+   Violation between Un-Routed Net Constraint: Net +3,3V Between Pad VR1-3 (-45.974,80.306mm) And Pad VR1-3 (-45.974,86.106mm)
+Rule Violations :12
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+
+Violations Detected : 44
+Time Elapsed        : 00:00:02
