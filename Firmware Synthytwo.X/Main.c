@@ -112,19 +112,11 @@ int     main(int argc, char** argv)
     asm volatile("ei");               //Autorise les macro-ASM (interruptions)
 
     init_lcd();
-    lcd_goto(1, 1);
-    lcd_print("SPI: ");
-    lcd_goto(1, 2);
-    lcd_print("OSC: ");
     init_dac();
     init_oscil();
     init_MIDI();
 
-    SPI2BUF = 1;                         //Start SPI2
-
     tab_create(tab);                        // Remplit le tableau avec les périodes
-    cursor = 1000;                          // Détermine la période
-   // cursor = 0;
 
     while(PROCESS)
     {

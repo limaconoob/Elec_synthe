@@ -9,13 +9,14 @@
 
 void         init_dac(void)
 {
+    //LR generator - samplingFreq / 2
     OC5CON = 0;
     OC5CONbits.OCM = 0b011;             //OC3 sur front descendant
     OC5CONbits.OCTSEL = 0;              //Tmr2
     OC5R = 420;
     OC5CONbits.ON = 1;
-    //SysClock generator - 80Mhz / 6
 
+    //SysClock generator - 80Mhz / 6
     T3CON = 0;
     TMR3 = 0;
     PR3 = 5;
@@ -26,6 +27,7 @@ void         init_dac(void)
     OC4CONbits.ON = 1;
     T3CONbits.ON = 1;
 
+    //SPI2 audio sample transmission
     IFS1bits.SPI2TXIF = FALSE;
     IPC7bits.SPI2IP =  6;
     IPC7bits.SPI2IS =  1;
@@ -34,25 +36,22 @@ void         init_dac(void)
     SPI2CON = 0;
     SPI2BUF = 0;
     SPI2BRG = 23;
+    SPI2STATbits.SPIROV = 0;
     SPI2CONbits.FRMEN = 0;              //NON Framed mode (generation de clock ininterompue)
     SPI2CONbits.FRMSYNC = 0;            //Frame master
-   // = 1;              //NON Framed mode (generation de clock ininterompue)
-
-    SPI2STATbits.SPIROV = 0;
-//    SPI2CONbits = ;
     SPI2CONbits.MSTEN = 1;              //Set SPI2 as Master
     SPI2CONbits.MODE16 = 1;             //16bit messages to transmit
     SPI2CONbits.MODE32 = 0;
     SPI2CONbits.CKE = 0;
     SPI2CONbits.ON = 1;
+
+    SPI2BUF = 1;                         //Start SPI2
+
 }
 
 void __ISR(_SPI_2_VECTOR, IPL6AUTO) sendSampleToDAC(void)
 {
-    if (noteON)
-        SPI2BUF = value;
-    else
-        SPI2BUF = 1;
+    SPI2BUF = value;
     IFS1bits.SPI2TXIF = FALSE;
 }
 

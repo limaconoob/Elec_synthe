@@ -26,7 +26,7 @@ u16     cursor = 1000;   // Donne la cadence d'augmentation de la tension
 
 void            onde_carre(void)
 {
-    static u16  pwm = 0x0000;      // Compteur basique (pour onde Carré)
+    static u16  pwm = 0;      // Compteur basique (pour onde Carré)
     static u8   mode = 0;          // Donne le sens d'évolution de la tension
 
     if (mode == MONTANT) {
@@ -46,7 +46,7 @@ void            onde_carre(void)
         else {                          // Quand le compteur arrive à beat
             mode = MONTANT;             // on inverse la tension courante
             value = 0x7FFF;
-            pwm = 0x0000;
+            pwm = 0;
         }
     }
 }
@@ -103,8 +103,11 @@ void __ISR(_TIMER_2_VECTOR, IPL2AUTO) sampleClock(void)
 //    oscillator();
 //    onde_carre();
 //    onde_triangle();
-    onde_sawtooth();
-    processMIDI();
+    if (notesON)
+        onde_sawtooth();
+    else
+        value = 1;
+    processMIDIBuffer();
 
     IFS0bits.T2IF = FALSE;
 }

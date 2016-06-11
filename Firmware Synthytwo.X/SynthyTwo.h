@@ -31,13 +31,16 @@
 # define SAWTOOTH   3
 # define SINUSOID   4
 
+#define MIDI_CHANNEL 1
 
-//------- DAC.c -------
+
+//---------------------------- DAC.c ----------------------------
 void         init_dac(void);
 //void __ISR(_SPI_2_VECTOR, IPL3AUTO) sendSampleToDAC(void);
 
-//----- Display.c -----
-//void      init_lcd(void);
+
+//-------------------------- Display.c --------------------------
+void      init_lcd(void);
 void      waitXticks(u32 x);
 void      lcd_pulse(void);
 void      write4bits(u8 value);
@@ -46,30 +49,34 @@ void      lcd_printnbr(u16 value);
 void      lcd_print(char *str);
 void      lcd_goto(u8 col, u8 line);
 
-//------ MIDI.c -------
-extern u8      midi_buffer[200];
-extern u8      midi_byte_wr;
-extern u8      midi_byte_rd;
-extern u8      noteON;
+
+//--------------------------- MIDI.c ----------------------------
+extern u8      notesON;                  // nombre de notes enfoncees
+extern u8      midi_note;                // note a jouer
 
 void      init_MIDI(void);
-void      processMIDI(void);
+void      processMIDIBuffer(void);
 //void __ISR(_UART_1_VECTOR, IPL7SOFT) recieveMIDIbyte(void);
 
-//--- Oscillator.c ----
+
+//------------------------ Oscillator.c -------------------------
 extern u16     value;       // VALUE EST LA TENSION (1 à FFFF) QUI VA AU DAC !
 extern u8      onde;    // Forme de l'onde (change à l'appui du bouton)
 extern u16     cursor;   // Donne la cadence d'augmentation de la tension
+
 void         init_oscil(void);
 //static void         onde_carre(void);
 //static void         onde_triangle(void);
 //static void         onde_sawtooth(void);
 //void __ISR(_TIMER_2_VECTOR, IPL1AUTO) sampleClock(void);
 
-//------ Main.c -------
+
+//--------------------------- Main.c ----------------------------
 static u32     tab[88];         // Tableau contenant toutes les périodes
 //void    tab_create(u32 *tab_period);
 //void  main();
+
+
 
 #endif	/* SYNTHYTWO_H */
 
