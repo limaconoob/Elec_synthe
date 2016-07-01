@@ -19,8 +19,8 @@ void    init_preset(void)
 
     OSC1.Env.Atk = 0b0000;
     OSC1.Env.Dec = 0b0000;
-    OSC1.Env.Sus = 0b1100;
-    OSC1.Env.Rel = 0b1111;
+    OSC1.Env.Sus = 0b0000;
+    OSC1.Env.Rel = 0b0000;
     OSC1.Env.amplitude_max = 0x3FFF;
 
 

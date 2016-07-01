@@ -67,15 +67,15 @@ void            generateur_enveloppe(t_env *Env)
     }
     else if ((*Env).cur_env == REL)
     {
-        if ((*Env).compteur / ENV_TimeScaler <= ((*Env).Rel + 1))
+        if ((*Env).compteur / ENV_TimeScaler < (*Env).Rel)
         {
-            (*Env).env_reste += ((2 * (*Env).cur_amplitude % (ENV_TimeScaler * ((*Env).Rel + 1))) * 1000) / (ENV_TimeScaler * ((*Env).Rel + 1));
+            (*Env).env_reste += ((2 * (*Env).cur_amplitude % (ENV_TimeScaler * (*Env).Rel)) * 1000) / (ENV_TimeScaler * (*Env).Rel);
             if ((*Env).env_reste >= 1000)
             {
                 (*Env).cur_amplitude -= 2;
                 (*Env).env_reste -= 1000;
             }
-            (*Env).cur_amplitude -= (2 * (*Env).cur_amplitude / (ENV_TimeScaler * ((*Env).Rel + 1)));
+            (*Env).cur_amplitude -= (2 * (*Env).cur_amplitude / (ENV_TimeScaler * (*Env).Rel));
         }
         else
         {

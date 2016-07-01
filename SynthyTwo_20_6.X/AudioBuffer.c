@@ -47,11 +47,11 @@ u16     generateAudioSample(void)
     u16     noise_sample = 0;
 
     osc1_sample = processOSC(&OSC1);
-    osc2_sample = processOSC(&OSC2);
+//    osc2_sample = processOSC(&OSC2);
 //    noise_sample = processNoise();
 
 //    if ((OSC1.phase && OSC2.phase) || (!OSC1.phase && !OSC2.phase))
-    mix_sample = osc1_sample + osc2_sample;// + noise_sample;
+    mix_sample = osc1_sample;// + osc2_sample;// + noise_sample;
 
 
     if (mix_sample == 0)
