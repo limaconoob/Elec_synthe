@@ -1,0 +1,48 @@
+
+#include "SynthyTwo.h"
+
+void            init_pins()
+{
+//-----------  SWITCH  -------------
+TRIS_SW1 = INPUT;
+TRIS_SW2 = INPUT;
+TRIS_SW3 = INPUT;
+TRIS_SW4 = INPUT;
+TRIS_SW5 = INPUT;
+
+//------------  LEDS  -------------
+TRIS_LED0 = OUTPUT;
+TRIS_LED1 = OUTPUT;
+TRIS_LED2 = OUTPUT;
+TRIS_LED3 = OUTPUT;
+TRIS_LED4 = OUTPUT;
+TRIS_LED5 = OUTPUT;
+TRIS_LED6 = OUTPUT;
+TRIS_LED7 = OUTPUT;
+TRIS_LED8 = OUTPUT;
+_LED0 = VCC;
+_LED1 = VCC;
+_LED2 = VCC;
+_LED3 = VCC;
+_LED4 = VCC;
+_LED5 = VCC;
+_LED6 = VCC;
+_LED7 = VCC;
+_LED8 = VCC;
+
+//---------  Encodeurs  -------------
+TRIS_EAA = INPUT;
+TRIS_EAB = INPUT;
+TRIS_EBA = INPUT;
+TRIS_EBB = INPUT;
+TRIS_ECA = INPUT;
+TRIS_ECB = INPUT;
+TRIS_EDA = INPUT;
+TRIS_EDB = INPUT;
+
+//----------  MULTIPLEX  -----------
+TRIS_MULT0 = OUTPUT;
+TRIS_MULT1 = OUTPUT;
+_MULT0 = GND;
+_MULT1 = GND;
+}
